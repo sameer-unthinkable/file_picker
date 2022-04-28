@@ -37,7 +37,6 @@ class FilePickerWeb extends FilePicker {
   @override
   Future<FilePickerResult?> pickFiles({
     String? dialogTitle,
-    String? initialDirectory,
     FileType type = FileType.any,
     List<String>? allowedExtensions,
     bool allowMultiple = false,
@@ -45,7 +44,6 @@ class FilePickerWeb extends FilePicker {
     bool allowCompression = true,
     bool withData = true,
     bool withReadStream = false,
-    bool lockParentWindow = false,
   }) async {
     if (type != FileType.custom && (allowedExtensions?.isNotEmpty ?? false)) {
       throw Exception(
@@ -60,7 +58,6 @@ class FilePickerWeb extends FilePicker {
     uploadInput.draggable = true;
     uploadInput.multiple = allowMultiple;
     uploadInput.accept = accept;
-    uploadInput.style.display = 'none';
 
     bool changeEventTriggered = false;
 
